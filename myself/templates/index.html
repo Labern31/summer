@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}" />
+
+    <script src="{% static 'js/jQuery.min.js' %}"></script>
+    <script src="{% static 'js/our.js' %}"></script>
+    <script src="{% static 'js/t.js' %}"></script>
+
+    <title>Title</title>
+</head>
+
+
+<body>
+
+    <h2 class="first-class"> This is other hello </h2>
+    <h1 id="my_name"> salut toi mon petit gars, comment tu vas ?</h1>
+     <row>
+         <td rowspan="2"><img src="{% static 'th.jpeg' %}" /> </td>
+         <td><div class="btn btn-info"><h1> Et coucou toi </h1> </div> </td>
+     </row>
+    <br>
+    <br>
+    <div id="clicker" class="btn btn-info"><h2> click me </h2> </div>
+    <div id="hidden">
+
+
+    <br>
+    <br>
+    Your name is {{name}}
+    <br>
+
+
+    {% for fruit in fruits %}
+    <button type="button" class="btn btn-primary">{{fruit}}</button>
+    <br>
+    {% endfor %}
+     </div>
+
+
+{% if name == "Rodrigue" %}
+Your name is Rodrigue
+    {% else %}
+    You are not Rodrigue, but {{name}}
+
+    {% endif %}
+
+    <a href="/myself/new_post"><div class="btn btn-primary">Add new post</div></a>
+{% for post in all_posts %}
+<div class="btn-info">
+    <button type="button" class="btn btn-warning">{{ post.author }}</button>
+    <button type="button" class="btn btn-danger">{{ post.date }}</button>
+    <br>
+    {{ post.body }}
+</div>
+<br>
+{% endfor %}
+
+</body>
+</html>
